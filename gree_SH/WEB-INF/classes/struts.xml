@@ -26,7 +26,7 @@
 	</package>
 	<package name="kzq" namespace="/kzq" extends="default">
 		<action name="*_*" class="action.kzq.{1}Action" method="{2}">
-	<result name="add_tongwang">/kzq/tongwang_add_success.jsp </result>
+	<result name="add_success">/kzq/tongwang_add_success.jsp </result>
 	<result name="tongwang_query_success">/kzq/TongWang_query.jsp </result>	
 		</action>
 	</package>

@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td width="30%">铜网类型：</td>
-    <td><input type="text" name="type" /></td>
+    <td><input type="text" name="type"  required/></td>
   </tr>
   <tr>
     <td width="30%">PCB编码：</td>
@@ -131,24 +131,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
     <tr>
     <td width="30%">铜网厂家：</td>
-    <td><input type="text" name="changjia" /></td>
+    <td><input type="text" name="changjia"  required/></td>
   </tr>
   <tr>
     <td>制作日期：</td>
     <td><input name="makedate" type="text" id="control_date" size="30"
-      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />
+      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"  required/>
     </td>
   </tr>
     <tr>
     <td>启用日期：</td>
     <td><input name="stardate" type="text" id="control_date" size="30"
-      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />
+      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"  required/>
     </td>
   </tr>
     
   <tr>
     <td>录入人：</td>
-    <td><input type="text" name="beizhu2" /></td>
+    <td ><input name="lururen" value="${sessionScope.loginUserName}" disabled="disabled"></td>
   </tr>
   <tr>
     <td>备注：</td>

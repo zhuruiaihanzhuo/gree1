@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="navi">
 	<div id='naviDiv'>
 		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;铜网记录管理<span>&nbsp;
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/students/Students_query.action">记录列表</a><span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/kzq/TongWang_query.action">记录列表</a><span>&nbsp;
 	</div>
 </div>
 <div id="tips">
@@ -134,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<s:iterator value="#session.tongwang_list" var="tw">
 	<tr class="list">
 		<td><s:property value="#tw.bianma"/></td>
-		<td><a href="<%=path%>/students/Students_modify.action?sid=<s:property value="#tw.tid"/>"><s:property value="#tw.tname"/></a></td>
+		<td><s:property value="#tw.tname"/></td>
 		<td><s:property value="#tw.banben"/></td>
 		<td><s:property value="#tw.type"/></td>
 		<td><s:property value="#tw.pcbNo"/></td>
@@ -143,10 +143,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td><s:property value="#tw.state"/></td>
 		<td><s:property value="#tw.rohs"/></td>
 		<td><s:property value="#tw.changjia"/></td>
-			<td><s:date name="#tw.makedate" format="yyyy年MM月dd日"/></td>
+		<td><s:date name="#tw.makedate" format="yyyy年MM月dd日"/></td>
 		<td><s:date name="#tw.stardate" format="yyyy年MM月dd日"/></td>
 		<td><s:date name="#tw.lurudate" format="yyyy年MM月dd日"/></td>
-		<td><s:date name="#tw.beizhu2"/></td>
+		<td><s:property value="#tw.beizhu2"/></td>
 		<td><s:property value="#tw.beizhu"/></td>
 		<%-- <td><a href="<%=path%>/students/Students_delete.action?sid=<s:property value="#stu.sid"/>" onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
 	 --%></tr>
