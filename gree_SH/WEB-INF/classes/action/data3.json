@@ -1,0 +1,31 @@
+{
+    "nOrder":"ZK0227964",
+    "planQty":"1,000",
+    "nowQty":"911",
+    "lineQty":"1,364",
+    "targetQty":"3,000",
+    "rate":"45.47%",
+    "lineList":null,
+    "chartData":{
+        "xValueList":[
+            "08～09",
+            "09～10",
+            "10～11",
+            "11～12",
+            "12～13",
+            "13～14",
+            "14～15"
+        ],
+        "yValueList":[
+            299,
+            159,
+            302,
+            141,
+            179,
+            273,
+            11
+        ],
+        "standartValue":300,
+        "maxValue":302
+    }
+}
