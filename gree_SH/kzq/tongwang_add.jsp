@@ -133,22 +133,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td width="30%">铜网厂家：</td>
     <td><input type="text" name="changjia"  required/></td>
   </tr>
-  <tr>
+    <tr>
     <td>制作日期：</td>
-    <td><input name="makedate" type="text" id="control_date" size="30"
-      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"  required/>
+    <td><input name="makedate" required="required" type="date" id="control_date" size="30"
+      maxlength="10"/>
     </td>
   </tr>
-    <tr>
+<!--   <tr>
+    <td>制作日期：</td>
+    <td><input name="makedate" required="required" type="text" id="control_date" size="30"
+      maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/>
+    </td>
+  </tr> -->
+  <!--   <tr>
     <td>启用日期：</td>
     <td><input name="stardate" type="text" id="control_date" size="30"
       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"  required/>
     </td>
+  </tr> -->
+     <tr>
+    <td>启用日期：</td>
+    <td><input name="stardate" type="date" id="control_date" size="30" 
+      maxlength="10" required/>
+    </td>
   </tr>
-    
   <tr>
     <td>录入人：</td>
-    <td ><input name="lururen" value="${sessionScope.loginUserName}" disabled="disabled"></td>
+    <td ><input name="lururen" value="${sessionScope.loginUserName}" disabled="disabled"  required/></td>
   </tr>
   <tr>
     <td>备注：</td>

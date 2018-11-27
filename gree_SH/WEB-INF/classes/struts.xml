@@ -28,6 +28,8 @@
 		<action name="*_*" class="action.kzq.{1}Action" method="{2}">
 	<result name="add_success">/kzq/tongwang_add_success.jsp </result>
 	<result name="tongwang_query_success">/kzq/TongWang_query.jsp </result>	
+	<result name="error">/error/500.html</result>
+	<result name="tongwang_querybyall_success">/kzq/query_TongWangByall.jsp</result>
 		</action>
 	</package>
 	
