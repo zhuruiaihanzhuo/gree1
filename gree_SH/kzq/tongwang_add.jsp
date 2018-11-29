@@ -159,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td>录入人：</td>
-    <td ><input name="lururen" value="${sessionScope.loginUserName}" disabled="disabled"  required/></td>
+    <td ><input name="lururen" value="${sessionScope.loginUserName}" readonly="readonly "  required /></td>
   </tr>
   <tr>
     <td>备注：</td>

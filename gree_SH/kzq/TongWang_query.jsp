@@ -1,13 +1,83 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE html>
-<
+<script type="text/javascript">
+// 当前第几页数据
+var currentPage = ${result.currentPage};
+var pagNumbe=currentPage+1
+// 总页数
+var totalPage = ${result.totalPage};
+
+function submitForm(actionUrl){
+	var formElement = document.getElementById("stuForm");
+	formElement.action = actionUrl;
+	
+	formElement.submit();
+}
+
+// 第一页
+function firstPage(){
+	if(currentPage == 1){
+		alert("已经是第一页数据");
+		return false;
+	}else{	
+			 pagNumbe=1 ;
+	
+		document.getElementById('seal').value=pagNumbe;
+			submitForm("<%=path %>/kzq/TongWang_query.action");
+		return true;
+	}
+}
+
+// 下一页
+function nextPage(){
+	if(currentPage == totalPage){
+		alert("已经是最后一页数据");
+		return false;
+	}else{
+		 pagNumbe=currentPage+1 ;
+	
+		document.getElementById('seal').value=pagNumbe;
+		submitForm("<%=path %>/kzq/TongWang_query.action");
+		return true;
+	}
+}
+
+// 上一页
+function previousPage(){
+	if(currentPage == 1){
+		alert("已经是第一页数据");
+		return false;
+	}else{
+		 pagNumbe=currentPage-1 ;
+	
+		document.getElementById('seal').value=pagNumbe;
+		submitForm("<%=path %>/kzq/TongWang_query.action");
+		return true;
+	}
+}
+
+// 尾页
+function lastPage(){
+	if(currentPage == totalPage){
+		alert("已经是最后一页数据");
+		return false;
+	}else{
+		document.getElementById('seal').value= ${result.totalPage};
+			submitForm("<%=path %>/kzq/TongWang_query.action");
+		return true;
+	}
+}
+</script>
 <html>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
 	<link rel="stylesheet" type="text/css" href="../css/default.css" />
 <style type="text/css">
 * {
@@ -77,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	font-size:12px;
 }
 </style>
-<body>
+<body >
 <div id="navi">
 	<div id='naviDiv'>
 		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;铜网记录管理<span>&nbsp;
@@ -92,16 +162,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	</div>
 </div>
-<form action="<%=path%>/kzq/TongWang_queryByAll.action" style="margin: 10px;  text-align:center" >
+<form action="<%=path%>/kzq/TongWang_queryAll.action"  id="stuForm"  style="margin: 10px;  text-align:center" >
 <!-- 	开始日期:<input name="start" type="date" />&nbsp;&nbsp;&nbsp;
 	结束日期:<input name="end" type="date"/>&nbsp;&nbsp;&nbsp; -->
-	铜网编码:<input name="bianma"  required/>
+	铜网编码:<input name="bianma" />
+	<input name="pagNumber"  type="hidden"  id="seal"/>
 	<input type="submit" value="查询记录" style="cursor:pointer;border-color: #77D1F6;border-width: 1px;border-style: solid; border-radius: 6px 6px;background-color:#f0f0f0;">
 </form>
-				<a href="#" onclick="firstPage();">首页</a>&nbsp;&nbsp; 
-			<a href="#" onclick="nextPage();">下一页</a>&nbsp;&nbsp; 
-			<a href="#" onclick="previousPage();">上一页</a>&nbsp;&nbsp;
-			<a href="#" onblur="lastPage();">尾页</a>	
+			
 			
 <div id="mainContainer">
 <!-- 从session中获取学生集合 -->
@@ -141,7 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	
 	<!-- 遍历开始 -->
-	<s:iterator value="#session.tongwang_list" var="tw">
+	<s:iterator value="#session.list" var="tw">
 	<tr class="list">
 		<td><s:property value="#tw.bianma"/></td>
 		<td><s:property value="#tw.tname"/></td>
@@ -165,5 +233,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </table>
 
 </div>
+<br> 共${result.totalRecord }条记录&nbsp;&nbsp;共${result.totalPage }页&nbsp;&nbsp;当前第${result.currentPage }页&nbsp;&nbsp;
+			<a href="#" onclick="firstPage();">首页</a>&nbsp;&nbsp; 
+			<a href="#" onclick="nextPage();">下一页</a>&nbsp;&nbsp; 
+			<a href="#" onclick="previousPage();">上一页</a>&nbsp;&nbsp;
+			<a href="#"  onclick="lastPage();">尾页</a>	
 </body>
 </html>

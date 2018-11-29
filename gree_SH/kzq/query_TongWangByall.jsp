@@ -9,81 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 
-<script type="text/javascript">
-// 当前第几页数据
-var currentPage = ${result.currentPage};
 
-// 总页数
-var totalPage = ${result.totalPage};
-
-function submitForm(actionUrl){
-	var formElement = document.getElementById("stuForm");
-	formElement.action = actionUrl;
-	formElement.submit();
-}
-
-// 第一页
-function firstPage(){
-	if(currentPage == 1){
-		alert("已经是第一页数据");
-		return false;
-	}else{
-		submitForm("<%=context %>/sublist/SublistServlet?pageNum=1");
-		return true;
-	}
-}
-
-// 下一页
-function nextPage(){
-	if(currentPage == totalPage){
-		alert("已经是最后一页数据");
-		return false;
-	}else{
-		submitForm("<%=context %>/sublist/SublistServlet?pageNum=" + (currentPage+1));
-		return true;
-	}
-}
-
-// 上一页
-function previousPage(){
-	if(currentPage == 1){
-		alert("已经是第一页数据");
-		return false;
-	}else{
-		submitForm("<%=context %>/sublist/SublistServlet?pageNum=" + (currentPage-1));
-		return true;
-	}
-}
-
-// 尾页
-function lastPage(){
-	if(currentPage == totalPage){
-		alert("已经是最后一页数据");
-		return false;
-	}else{
-		submitForm("<%=context %>/sublist/SublistServlet?pageNum=${result.totalPage}");
-		return true;
-	}
-}
-function initPage(){
-	var genderRequest = "${gender}" ;
-	var genderVal = 0;
-	var genderElement = document.getElementById("gender");
-	if(genderRequest != ""){
-		genderVal = parseInt(genderRequest);
-	}
-	
-	var options = genderElement.options;
-	var i = 0;
-	for(i = 0; i < options.length; i++){
-		if(options[i].value == genderVal){
-			options[i].selected=true;
-			break;
-		}
-	}
-	
-}
-</script>
 	<link rel="stylesheet" type="text/css" href="../css/default.css" />
 <style type="text/css">
 * {
@@ -168,7 +94,7 @@ function initPage(){
 		
 	</div>
 </div>
-<form action="<%=path%>/kzq/TongWang_queryByAll.action" style="margin: 10px;  text-align:center" >
+<form action="<%=path%>/kzq/TongWang_queryAll.action" style="margin: 10px;  text-align:center" >
 <!-- 	开始日期:<input name="start" type="date" />&nbsp;&nbsp;&nbsp;
 	结束日期:<input name="end" type="date"/>&nbsp;&nbsp;&nbsp; -->
 	铜网编码:<input name="bianma" required />
@@ -238,7 +164,7 @@ function initPage(){
 </table>
 
 </div>
-<br> 共${result.totalRecord }条记录共${result.totalPage }页&nbsp;&nbsp;当前第${result.currentPage }页&nbsp;&nbsp;
+<br> 共${result.totalRecord }条&nbsp;&nbsp; 记录共${result.totalPage }页&nbsp;&nbsp;当前第${result.currentPage }页&nbsp;&nbsp;
 			<a href="#" onclick="firstPage();">首页</a>&nbsp;&nbsp; 
 			<a href="#" onclick="nextPage();">下一页</a>&nbsp;&nbsp; 
 			<a href="#" onclick="previousPage();">上一页</a>&nbsp;&nbsp;
