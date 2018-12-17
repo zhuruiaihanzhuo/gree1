@@ -239,4 +239,9 @@ function lastPage(){
 			<a href="#" onclick="previousPage();">上一页</a>&nbsp;&nbsp;
 			<a href="#"  onclick="lastPage();">尾页</a>	
 </body>
+<script type="text/javascript">
+function name() {
+	
+}
+</script>
 </html>

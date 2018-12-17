@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default"></package>
+	
+	<package name="users" namespace="/users" extends="default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	<result name="login_success">/users/Users_login_success.jsp</result>
+	<result name="failure">/zzkzq/zzKzqView.html</result>
+	<result name="logout_success">/users/Users_login.jsp</result>
+	<result name="input">/users/Users_login.jsp</result>
+	</action>
+	</package>
+	
+	<package name="students" namespace="/students" extends="default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	<result name="Students_query_success">/students/mui.jsp </result>
+	<result name="delete_success" type="chain">Students_query</result>
+	<result name="add_success" >/students/Students_add_success.jsp</result>
+	<result name="modify_success">/students/Students_modify.jsp</result>
+	<result name="save_success" >/students/Students_modify_success.jsp</result>
+	<result name="test_success">/students/test.jsp</result>
+	<result name="test2_success">/students/zzKqzLineView.jsp</result>
+	</action>
+	</package>
+	
+	<package name="staffs" namespace="/staffs" extends="default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	<result name="success">/test.html</result>
+
+	</action>
+	</package>
+</struts>    

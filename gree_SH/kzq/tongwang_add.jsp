@@ -1,10 +1,18 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 <!DOCTYPE html>
+<script type="text/javascript">
+function test(){
+	alert("<%=path%>/kzq/TongWang_add.action");
+}
+
+</script>
 <html>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../css/default.css" />
@@ -75,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	font-size:16px;
 }
 </style>
-<body>
+<body onload="test()">
 <script type="text/javascript" src="../js/Calendar3.js"></script>
 
 <div id="navi">
@@ -173,5 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 </div>
+
 </body>
+
 </html>
